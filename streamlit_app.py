@@ -47,4 +47,4 @@ if available_fruits:
         st.success(f"Hi {name_on_order}, Your Smoothie is ordered!", icon="✅")
 
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/orange")
-st.text(smoothiefroot_response.json())
+sf_df = st.dataframe( data = smoothiefroot_response.json(), use_container_width = True)
