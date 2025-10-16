@@ -30,6 +30,8 @@ if available_fruits:
 
     for fruit in available_fruits:
         available_fruits_string += fruit + ' '
+        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/orange")
+        sf_df = st.dataframe( data = smoothiefroot_response.json(), use_container_width = True)
 
     # st.write(available_fruits_string)
 
@@ -46,5 +48,4 @@ if available_fruits:
         session.sql(my_insert_stmt).collect()
         st.success(f"Hi {name_on_order}, Your Smoothie is ordered!", icon="✅")
 
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/orange")
-sf_df = st.dataframe( data = smoothiefroot_response.json(), use_container_width = True)
+
